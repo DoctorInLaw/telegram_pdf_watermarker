@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: telegram-pdf-watermarker
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python telegram_pdf_watermarker.py
+    envVars:
+      - key: BOT_TOKEN
+        value: $[BOT_TOKEN]
+      - key: ADMIN_CHANNEL_ID
+        value: $[ADMIN_CHANNEL_ID]
+      - key: RENDER_EXTERNAL_URL
+        value: $[RENDER_EXTERNAL_URL]  # Replace with your actual Render URL after creation
